@@ -8,13 +8,15 @@ export default function useTime() {
   useEffect(() => {
     const interval = setInterval(() => {
       const date = new Date();
-      date.getHours();
-      date.getMinutes();
-      date.getSeconds();
+      setHours(Math.floor((date.getHours() / 24) * 360));
+      setMinutes(Math.floor((date.getMinutes() / 60) * 360));
+      setSeconds(Math.floor((date.getSeconds() / 60) * 360));
     }, 1000);
 
     return () => {
       clearInterval(interval);
     };
   }, []);
+
+  return { hours, minutes, seconds };
 }

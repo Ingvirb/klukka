@@ -16,37 +16,37 @@ export const Clock = styled.div`
   //background-color: green;
 `;
 
-export const HourHand = styled.div`
+export const HourHand = styled.div<{ rotation: number }>`
   height: 5px;
   width: 5px;
   //background-color: aliceblue;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: rotate(45deg);
+  transform: rotate(${(p) => p.rotation}deg);
   &:after {
     content: "";
-    height: 175px;
-    width: 5px;
-    background-color: green;
+    height: 125px;
+    width: 3px;
+    background-color: salmon;
     position: absolute;
     bottom: 0;
   }
 `;
 
-export const MinuteHand = styled.div`
+export const MinuteHand = styled.div<{ rotation: number }>`
   height: 5px;
   width: 5px;
   //background-color: aliceblue;
   position: absolute;
   top: 50%;
   left: 50%;
-  //transform: translate(-50%, -50%);
+  transform: rotate(${(p) => p.rotation}deg);
   &:after {
     content: "";
-    height: 150px;
+    height: 175px;
     width: 3px;
-    background-color: goldenrod;
+    background-color: salmon;
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -54,19 +54,19 @@ export const MinuteHand = styled.div`
   }
 `;
 
-export const SecondHand = styled.div`
+export const SecondHand = styled.div<{ rotation: number }>`
   height: 5px;
   width: 5px;
   //background-color: aliceblue;
   position: absolute;
   top: 50%;
   left: 50%;
-  //transform: translate(-50%, -50%);
+  transform: rotate(${(p) => p.rotation}deg);
   &:after {
     content: "";
     height: 125px;
     width: 1px;
-    background-color: purple;
+    background-color: salmon;
     position: absolute;
     bottom: 0;
     left: 50%;
