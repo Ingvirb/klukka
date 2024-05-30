@@ -8,9 +8,9 @@ export default function useTime() {
   useEffect(() => {
     const interval = setInterval(() => {
       const date = new Date();
-      setHours(Math.floor((date.getHours() / 24) * 360));
-      setMinutes(Math.floor((date.getMinutes() / 60) * 360));
-      setSeconds(Math.floor((date.getSeconds() / 60) * 360));
+      setHours((date.getHours() % 12) * 30 + date.getMinutes() * 0.5); // 360 degrees / 12 hours + offset based on minutes
+      setMinutes(date.getMinutes() * 6 + date.getSeconds() * 0.1); // 360 degrees / 60 minutes + offset based on seconds
+      setSeconds(date.getSeconds() * 6); // 360 degrees / 60 seconds
     }, 1000);
 
     return () => {
