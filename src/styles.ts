@@ -1,29 +1,71 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
+// Define the prop type
+interface DarkModeProps {
+  isDarkMode: boolean;
+}
+
+export const Wrapper = styled.div<DarkModeProps>`
   height: 100vh;
   width: 100vw;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to bottom, #72ecfa, #72fab6);
+  background: ${({ isDarkMode }) =>
+    isDarkMode
+      ? "linear-gradient(to bottom, #1e1e1e, #3e3e3e)"
+      : "linear-gradient(to bottom, #72ecfa, #72fab6)"};
+  color: ${({ isDarkMode }) => (isDarkMode ? "#fff" : "#000")};
 `;
 
-export const Clock = styled.div`
+export const ToggleButton = styled.button<DarkModeProps>`
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  font-size: 12px;
+  background: ${({ isDarkMode }) => (isDarkMode ? "#444" : "salmon")};
+  color: ${({ isDarkMode }) =>
+    isDarkMode ? "#fff" : "#fff"}; /* Use white text color for both modes */
+  border: 1px solid ${({ isDarkMode }) => (isDarkMode ? "#666" : "salmon")};
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s, border 0.3s, transform 0.3s;
+  box-shadow: ${({ isDarkMode }) =>
+    isDarkMode
+      ? "0 4px 10px rgba(0, 0, 0, 0.2)"
+      : "0 4px 10px rgba(0, 0, 0, 0.1)"};
+
+  &:hover {
+    background: ${({ isDarkMode }) =>
+      isDarkMode
+        ? "#666"
+        : "#e9967a"}; /* Lighter salmon for hover in light mode */
+    border-color: ${({ isDarkMode }) =>
+      isDarkMode
+        ? "linear-gradient(to bottom, #1e1e1e, #3e3e3e)"
+        : "linear-gradient(to bottom, #72ecfa, #72fab6)"}; /* Match the background gradient */
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+`;
+
+export const Clock = styled.div<DarkModeProps>`
   height: 400px;
   width: 400px;
-  border: 1.5px solid salmon;
-  box-shadow: 0px 10px 100px 1px salmon;
+  border: 1.5px solid ${({ isDarkMode }) => (isDarkMode ? "#fff" : "salmon")};
+  box-shadow: 0px 10px 100px 1px
+    ${({ isDarkMode }) => (isDarkMode ? "#333" : "salmon")};
   border-radius: 50%;
-  position: absolute;
+  position: relative;
   transition: transform 0.3s, border-color 0.3s; /* Add transition for smoother effect */
   &:hover {
     transform: scale(1.05); /* Scale up the clock on hover */
-    border-color: rgba(250, 128, 114, 0.5);
-    // opacity: 0.5; /* 50% less visible salmon color */
+    border-color: ${({ isDarkMode }) =>
+      isDarkMode ? "#888" : "rgba(250, 128, 114, 0.5)"};
   }
-  //background-color: green;
-  //background-color: green;
 `;
 
 export const CenterCircle = styled.div`
