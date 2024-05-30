@@ -13,6 +13,7 @@ export const Clock = styled.div`
   height: 400px;
   width: 400px;
   border: 1.5px solid salmon;
+  box-shadow: 0px 10px 100px 1px salmon;
   border-radius: 50%;
   position: absolute;
   transition: transform 0.3s, border-color 0.3s; /* Add transition for smoother effect */
@@ -34,6 +35,7 @@ export const CenterCircle = styled.div`
   height: 13px;
   border-radius: 50%;
   background-color: salmon;
+  box-shadow: 10px 10px 60px 20px pink;
 `;
 
 export const HourHand = styled.div<{ rotation: number }>`
@@ -105,4 +107,5 @@ export const Number = styled.div<{ angle: number }>`
   font-weight: bold;
   color: salmon;
   text-align: center;
+  //box-shadow: 1px 1px 600px 10px pink;
 `;
