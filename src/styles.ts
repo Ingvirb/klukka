@@ -12,6 +12,7 @@ export const Wrapper = styled.div<DarkModeProps>`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
   background: ${({ isDarkMode }) =>
     isDarkMode
       ? "linear-gradient(to bottom, #1e1e1e, #3e3e3e)"
@@ -19,10 +20,31 @@ export const Wrapper = styled.div<DarkModeProps>`
   color: ${({ isDarkMode }) => (isDarkMode ? "#fff" : "#000")};
 `;
 
-export const ToggleButton = styled.button<DarkModeProps>`
-  margin-bottom: 20px;
-  padding: 10px 20px;
-  font-size: 12px;
+export const CustomIcon = styled.div`
+  width: 20px;
+  height: 20px;
+  background-color: salmon;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const CustomCheckedIcon = styled(CustomIcon)`
+  background-color: rgba(250, 128, 114, 0.5); /* 50% transparency */
+`;
+
+export const CustomUncheckedIcon = styled(CustomIcon)`
+  background-color: salmon;
+`;
+
+export const ToggleButtonWrapper = styled.button<DarkModeProps>`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  margin-bottom: 70px;
+  padding: 4px 8px;
+  font-size: 10px;
   background: ${({ isDarkMode }) => (isDarkMode ? "#444" : "salmon")};
   color: ${({ isDarkMode }) =>
     isDarkMode ? "#fff" : "#fff"}; /* Use white text color for both modes */
@@ -49,6 +71,12 @@ export const ToggleButton = styled.button<DarkModeProps>`
 
   &:active {
     transform: translateY(1px);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px
+      ${({ isDarkMode }) => (isDarkMode ? "#666" : "#e9967a")};
   }
 `;
 
