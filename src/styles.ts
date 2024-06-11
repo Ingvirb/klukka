@@ -177,5 +177,4 @@ export const Number = styled.div<{ angle: number }>`
   font-weight: bold;
   color: salmon;
   text-align: center;
-  //box-shadow: 1px 1px 600px 10px pink;
 `;
