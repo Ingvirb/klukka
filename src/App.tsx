@@ -19,24 +19,24 @@ export default function Clock() {
         {numbers.map((number) => {
           const angle = number * 30; // Each number is 30 degrees apart
           return (
-            <S.Number key={number} angle={angle} isDarkMode={isDarkMode}>
+            <S.Number key={number} angle={angle}>
               {number}
             </S.Number>
           );
         })}
-        <S.CenterCircle isDarkMode={isDarkMode} />
-        <S.HourHand rotation={time.hours} isDarkMode={isDarkMode} />
-        <S.MinuteHand rotation={time.minutes} isDarkMode={isDarkMode} />
-        <S.SecondHand rotation={time.seconds} isDarkMode={isDarkMode} />
+        <S.CenterCircle />
+        <S.HourHand rotation={time.hours} />
+        <S.MinuteHand rotation={time.minutes} />
+        <S.SecondHand rotation={time.seconds} />
       </S.Clock>
-      <S.ToggleButtonWrapper isDarkMode={isDarkMode}>
+      <S.ToggleButtonWrapper>
         <Switch
           onChange={handleToggle}
           checked={isDarkMode}
           onColor="salmon"
           offColor="salmon"
-          uncheckedIcon={<S.CustomUncheckedIcon isDarkMode={isDarkMode} />}
-          checkedIcon={<S.CustomCheckedIcon isDarkMode={isDarkMode} />}
+          uncheckedIcon={<S.CustomUncheckedIcon />}
+          checkedIcon={<S.CustomCheckedIcon />}
           height={20}
           width={40}
           handleDiameter={20}

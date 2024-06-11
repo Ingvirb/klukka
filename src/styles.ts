@@ -96,7 +96,7 @@ export const Clock = styled.div<DarkModeProps>`
   }
 `;
 
-export const CenterCircle = styled.div<DarkModeProps>`
+export const CenterCircle = styled.div`
   position: absolute;
   top: 50%;
   left: 51%;
@@ -104,9 +104,8 @@ export const CenterCircle = styled.div<DarkModeProps>`
   width: 13px;
   height: 13px;
   border-radius: 50%;
-  background-color: ${({ isDarkMode }) => (isDarkMode ? "#333" : "salmon")};
-  box-shadow: 10px 10px 60px 20px
-    ${({ isDarkMode }) => (isDarkMode ? "#222" : "pink")};
+  background-color: salmon;
+  box-shadow: 10px 10px 60px 20px pink;
 `;
 
 export const HourHand = styled.div<{ rotation: number }>`
@@ -167,7 +166,7 @@ export const SecondHand = styled.div<{ rotation: number }>`
   }
 `;
 
-export const Number = styled.div<{ angle: number; isDarkMode: boolean }>`
+export const Number = styled.div<{ angle: number }>`
   position: absolute;
   top: 46%;
   left: 48%;
@@ -176,6 +175,7 @@ export const Number = styled.div<{ angle: number; isDarkMode: boolean }>`
     `rotate(${p.angle}deg) translate(-0%, -175px) rotate(-${p.angle}deg)`};
   font-size: 24px;
   font-weight: bold;
-  color: ${({ isDarkMode }) => (isDarkMode ? "#fff" : "salmon")};
+  color: salmon;
   text-align: center;
+  //box-shadow: 1px 1px 600px 10px pink;
 `;
