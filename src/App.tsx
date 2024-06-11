@@ -15,7 +15,7 @@ export default function Clock() {
 
   return (
     <S.Wrapper isDarkMode={isDarkMode}>
-      <S.Clock>
+      <S.Clock isDarkMode={isDarkMode}>
         {numbers.map((number) => {
           const angle = number * 30; // Each number is 30 degrees apart
           return (
@@ -29,7 +29,7 @@ export default function Clock() {
         <S.MinuteHand rotation={time.minutes} />
         <S.SecondHand rotation={time.seconds} />
       </S.Clock>
-      <S.ToggleButtonWrapper>
+      <S.ToggleButtonWrapper isDarkMode={isDarkMode}>
         <Switch
           onChange={handleToggle}
           checked={isDarkMode}
